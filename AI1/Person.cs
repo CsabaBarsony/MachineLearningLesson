@@ -8,41 +8,41 @@ namespace AI1
 {
     public class Person
     {
-        public Level    age             { get; set; }
-        public Employer employer        { get; set; }
-        public Level    fnlwgt          { get; set; }
-        public School   school          { get; set; }
-        public Level    schoolCode      { get; set; }
-        public Marital  marital         { get; set; }
-        public Industry industry        { get; set; }
-        public Relation relation        { get; set; }
-        public Race     race            { get; set; }
-        public Gender   gender          { get; set; }
-        public Level    wealth          { get; set; }
-        public Level    debt            { get; set; }
-        public Level    manHour         { get; set; }
-        public Country  country         { get; set; }
-        public bool     incomeOver50k   { get; set; }
+        public Level    age           { get; set; }
+        public Employer employer      { get; set; }
+        public Level    fnlwgt        { get; set; }
+        public School   school        { get; set; }
+        public Level    schoolCode    { get; set; }
+        public Marital  marital       { get; set; }
+        public Industry industry      { get; set; }
+        public Relation relation      { get; set; }
+        public Race     race          { get; set; }
+        public Gender   gender        { get; set; }
+        public Level    wealth        { get; set; }
+        public Level    debt          { get; set; }
+        public Level    manHour       { get; set; }
+        public Country  country       { get; set; }
+        public bool     incomeOver50k { get; set; }
 
         public Person(String line)
         {
             String[] values = line.Split(',');
 
-            this.age            = setLevel(30, 40, 50, 60,                  values[0]);
-            this.employer       = (Employer)replaceHyphen(typeof(Employer), values[1]);
-            this.fnlwgt         = setLevel(300000, 600000, 900000, 1200000, values[2]);
-            this.school         = setSchool(                                values[3]);
-            this.schoolCode     = setLevel(8, 10, 12, 14,                   values[4]);
-            this.marital        = (Marital)replaceHyphen(typeof(Marital),   values[5]);
-            this.industry       = (Industry)replaceHyphen(typeof(Industry), values[6]);
-            this.relation       = (Relation)replaceHyphen(typeof(Relation), values[7]);
-            this.race           = (Race)replaceHyphen(typeof(Race),         values[8]);
-            this.gender         = (Gender)replaceHyphen(typeof(Gender),     values[9]);
-            this.wealth         = setLevel(1, 2000, 5000, 8000,             values[10]);
-            this.debt           = setLevel(1, 500, 1000, 2000,              values[11]);
-            this.manHour        = setLevel(20, 40, 60, 80,                  values[12]);
-            this.country        = setCountry(                               values[13]);
-            this.incomeOver50k  = setIncomeOver(                            values[14]);
+            this.age           = setLevel(30, 40, 50, 60,                  values[0]);
+            this.employer      = (Employer)replaceHyphen(typeof(Employer), values[1]);
+            this.fnlwgt        = setLevel(300000, 600000, 900000, 1200000, values[2]);
+            this.school        = setSchool(                                values[3]);
+            this.schoolCode    = setLevel(8, 10, 12, 14,                   values[4]);
+            this.marital       = (Marital)replaceHyphen(typeof(Marital),   values[5]);
+            this.industry      = (Industry)replaceHyphen(typeof(Industry), values[6]);
+            this.relation      = (Relation)replaceHyphen(typeof(Relation), values[7]);
+            this.race          = (Race)replaceHyphen(typeof(Race),         values[8]);
+            this.gender        = (Gender)replaceHyphen(typeof(Gender),     values[9]);
+            this.wealth        = setLevel(1, 2000, 5000, 8000,             values[10]);
+            this.debt          = setLevel(1, 500, 1000, 2000,              values[11]);
+            this.manHour       = setLevel(20, 40, 60, 80,                  values[12]);
+            this.country       = setCountry(                               values[13]);
+            this.incomeOver50k = setIncomeOver(                            values[14]);
         }
 
         public Person(
@@ -97,11 +97,11 @@ namespace AI1
 
             int value = Int32.Parse(valueString);
 
-            if (value < low)                        level = Level.Low;
-            if (value >= low && value < lowMid)     level = Level.LowMid;
-            if (value >= lowMid && value < mid)     level = Level.Mid;
-            if (value >= mid && value < midHigh)    level = Level.HighMid;
-            if (value >= midHigh)                   level = Level.High;
+            if (value < low)                     level = Level.Low;
+            if (value >= low && value < lowMid)  level = Level.LowMid;
+            if (value >= lowMid && value < mid)  level = Level.Mid;
+            if (value >= mid && value < midHigh) level = Level.HighMid;
+            if (value >= midHigh)                level = Level.High;
 
             return level;
         }
@@ -110,14 +110,14 @@ namespace AI1
         {
             School school;
 
-            if      (value == "11th")       school = School._11th;
-            else if (value == "9th")        school = School._9th;
-            else if (value == "7th-8th")    school = School._7th_8th;
-            else if (value == "12th")       school = School._12th;
-            else if (value == "1st-4th")    school = School._1st_4th;
-            else if (value == "10th")       school = School._10th;
-            else if (value == "5th-6th")    school = School._5th_6th;
-            else                            school = (School)replaceHyphen(typeof(School), value);
+            if      (value == "11th")    school = School._11th;
+            else if (value == "9th")     school = School._9th;
+            else if (value == "7th-8th") school = School._7th_8th;
+            else if (value == "12th")    school = School._12th;
+            else if (value == "1st-4th") school = School._1st_4th;
+            else if (value == "10th")    school = School._10th;
+            else if (value == "5th-6th") school = School._5th_6th;
+            else                         school = (School)replaceHyphen(typeof(School), value);
 
             return school;
         }
@@ -142,6 +142,51 @@ namespace AI1
             else                                            country = (Country)replaceHyphen(typeof(Country), value);
 
             return country;
+        }
+
+        public static int employerCount()
+        {
+            return Enum.GetNames(typeof(Employer)).Length;
+        }
+
+        public static int maritalCount()
+        {
+            return Enum.GetNames(typeof(Marital)).Length;
+        }
+
+        public static int industryCount()
+        {
+            return Enum.GetNames(typeof(Industry)).Length;
+        }
+
+        public static int schoolCount()
+        {
+            return Enum.GetNames(typeof(School)).Length;
+        }
+
+        public static int relationCount()
+        {
+            return Enum.GetNames(typeof(Relation)).Length;
+        }
+
+        public static int raceCount()
+        {
+            return Enum.GetNames(typeof(Race)).Length;
+        }
+
+        public static int genderCount()
+        {
+            return Enum.GetNames(typeof(Gender)).Length;
+        }
+
+        public static int countryCount()
+        {
+            return Enum.GetNames(typeof(Country)).Length;
+        }
+
+        public static int levelCount()
+        {
+            return Enum.GetNames(typeof(Level)).Length;
         }
     }
 
