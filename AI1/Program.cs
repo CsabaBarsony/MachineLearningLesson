@@ -26,6 +26,7 @@ namespace AI1
 
             foreach (String line in devPersonsData)
             {
+                if (line != "") trainPersons.Add(new Person(line));
                 if (line != "") devPersons.Add(new Person(line));
             }
 
@@ -109,34 +110,34 @@ namespace AI1
                 double over = incomeOver / personsNumber;
                 double under = incomeUnder / personsNumber;
 
-                double ageOver = ageOverValues[(int)person.age] / incomeOver;
-                double ageUnder = ageUnderValues[(int)person.age] / incomeUnder;
-                double employerOver = employerOverValues[(int)person.employer] / incomeOver;
-                double employerUnder = employerUnderValues[(int)person.employer] / incomeUnder;
-                double fnlwgtOver = fnlwgtOverValues[(int)person.fnlwgt] / incomeOver;
-                double fnlwgtUnder = fnlwgtUnderValues[(int)person.fnlwgt] / incomeUnder;
-                double schoolOver = schoolOverValues[(int)person.school] / incomeOver;
-                double schoolUnder = schoolUnderValues[(int)person.school] / incomeUnder;
-                double schoolCodeOver = schoolCodeOverValues[(int)person.schoolCode] / incomeOver;
-                double schoolCodeUnder = schoolCodeUnderValues[(int)person.schoolCode] / incomeUnder;
-                double maritalOver = maritalOverValues[(int)person.marital] / incomeOver;
-                double maritalUnder = maritalUnderValues[(int)person.marital] / incomeUnder;
-                double industryOver = industryOverValues[(int)person.industry] / incomeOver;
-                double industryUnder = industryUnderValues[(int)person.industry] / incomeUnder;
-                double relationOver = relationOverValues[(int)person.relation] / incomeOver;
-                double relationUnder = relationUnderValues[(int)person.relation] / incomeUnder;
-                double raceOver = raceOverValues[(int)person.race] / incomeOver;
-                double raceUnder = raceUnderValues[(int)person.race] / incomeUnder;
-                double genderOver = genderOverValues[(int)person.gender] / incomeOver;
-                double genderUnder = genderUnderValues[(int)person.gender] / incomeUnder;
-                double wealthOver = wealthOverValues[(int)person.wealth] / incomeOver;
-                double wealthUnder = wealthUnderValues[(int)person.wealth] / incomeUnder;
-                double debtOver = debtOverValues[(int)person.debt] / incomeOver;
-                double debtUnder = debtUnderValues[(int)person.debt] / incomeUnder;
-                double manHourOver = manHourOverValues[(int)person.manHour] / incomeOver;
-                double manHourUnder = manHourUnderValues[(int)person.manHour] / incomeUnder;
-                double countryOver = countryOverValues[(int)person.country] / incomeOver;
-                double countryUnder = countryUnderValues[(int)person.country] / incomeUnder;
+                double ageOver         = ageOverValues         [(int)person.age]        / incomeOver;
+                double ageUnder        = ageUnderValues        [(int)person.age]        / incomeUnder;
+                double employerOver    = employerOverValues    [(int)person.employer]   / incomeOver;
+                double employerUnder   = employerUnderValues   [(int)person.employer]   / incomeUnder;
+                double fnlwgtOver      = fnlwgtOverValues      [(int)person.fnlwgt]     / incomeOver;
+                double fnlwgtUnder     = fnlwgtUnderValues     [(int)person.fnlwgt]     / incomeUnder;
+                double schoolOver      = schoolOverValues      [(int)person.school]     / incomeOver;
+                double schoolUnder     = schoolUnderValues     [(int)person.school]     / incomeUnder;
+                double schoolCodeOver  = schoolCodeOverValues  [(int)person.schoolCode] / incomeOver;
+                double schoolCodeUnder = schoolCodeUnderValues [(int)person.schoolCode] / incomeUnder;
+                double maritalOver     = maritalOverValues     [(int)person.marital]    / incomeOver;
+                double maritalUnder    = maritalUnderValues    [(int)person.marital]    / incomeUnder;
+                double industryOver    = industryOverValues    [(int)person.industry]   / incomeOver;
+                double industryUnder   = industryUnderValues   [(int)person.industry]   / incomeUnder;
+                double relationOver    = relationOverValues    [(int)person.relation]   / incomeOver;
+                double relationUnder   = relationUnderValues   [(int)person.relation]   / incomeUnder;
+                double raceOver        = raceOverValues        [(int)person.race]       / incomeOver;
+                double raceUnder       = raceUnderValues       [(int)person.race]       / incomeUnder;
+                double genderOver      = genderOverValues      [(int)person.gender]     / incomeOver;
+                double genderUnder     = genderUnderValues     [(int)person.gender]     / incomeUnder;
+                double wealthOver      = wealthOverValues      [(int)person.wealth]     / incomeOver;
+                double wealthUnder     = wealthUnderValues     [(int)person.wealth]     / incomeUnder;
+                double debtOver        = debtOverValues        [(int)person.debt]       / incomeOver;
+                double debtUnder       = debtUnderValues       [(int)person.debt]       / incomeUnder;
+                double manHourOver     = manHourOverValues     [(int)person.manHour]    / incomeOver;
+                double manHourUnder    = manHourUnderValues    [(int)person.manHour]    / incomeUnder;
+                double countryOver     = countryOverValues     [(int)person.country]    / incomeOver;
+                double countryUnder    = countryUnderValues    [(int)person.country]    / incomeUnder;
 
                 double overResult = over *
                                     ageOver *
